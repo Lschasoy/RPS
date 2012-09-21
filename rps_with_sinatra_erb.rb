@@ -28,6 +28,7 @@ get '/throw/:type' do
     erb :index
   end
 end
+
 __END__
 
 @@index
