@@ -1,0 +1,113 @@
+ 
+body { 
+	color: #333;
+	font: 16px/28px Georgia, 'Times New Roman', Times, serif;
+}
+
+html { overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+#wrapper {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+/**
+ * Typography and default HTML elements
+ */
+
+a {
+	color: #F71570;
+	text-decoration: none;
+	-webkit-transition: all 100ms linear;
+	/*-moz-transition: all 100ms linear;*/
+	transition: all 100ms linear;
+}
+
+a:hover {
+	color: #AC0649;
+	text-shadow: 0 1px 0 #fff;
+}
+
+a:active { outline: none; }
+
+p, dl, hr, h1, h2, h3,
+ol, ul, dd, pre, table, fieldset {
+	margin-bottom: 20px;
+}
+
+
+/* Headings */
+h1, h2, h3, h4, h5, h6, #option {
+	font-family: 'Droid Serif', sans-serif;
+	text-shadow: 0 1px 0 #fff;
+}
+
+h1 {
+	font-size: 32px;
+}
+
+h2 {
+	font-size: 28px;
+
+}
+
+
+/**
+ * Header
+ */
+
+.header {
+	padding: 30px 20px 30px;
+	text-align:center;
+}
+
+#site-title {
+	color: #1e1e1e;
+	font: bold 66px 'Droid Serif', sans-serif;
+	float: left;
+	letter-spacing: -3px;
+	text-shadow: 0 1px 0 #fff;
+}
+
+#site-title:hover {
+	background: none;
+	text-shadow: 0 1px 0 #fff;
+
+}
+
+#site-description {
+	font: normal 18px 'Droid Serif', sans-serif;
+	float: right;
+	padding-top: 32px;
+}
+
+/**
+ * Content
+ */
+ 
+.content { 
+	background: rgba(204, 204, 204, .4);
+	border-radius: 5px 5px 10px 10px;
+	width: 560px;
+}
+
+
+/* Input fields */
+textarea {
+	border-radius: 10px;
+}
+
+input[type="checkbox"],
+input[type="radio"],
+select {
+	margin-left: 10px;
+}
+
+/* Submit */
+input[type="submit"] {
+	color: #fff;
+}
+
+input[type="submit"]:hover {
+	text-shadow: 0 1px 0 #AC0649;
+}
