@@ -1,0 +1,31 @@
+body { 
+    background: #0000FF;
+    color: #00C;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 100%;
+    margin: 1em;
+    padding: 1em;
+}
+#PRC{
+   width: 1024px;
+}
+
+#CAB{
+  
+   width: 100%;
+	background: #0f0f0f;
+   height: 93px;
+}
+
+
+#IZQ{
+   
+	float:left;
+   width: 30%;
+	background: #f0f0f0;
+}
+#DCH{
+   margin-left:30%;
+   width: 70%;
+	background: #080808;
+}
