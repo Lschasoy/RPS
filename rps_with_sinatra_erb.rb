@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'sinatra'
 require 'erb'
 
@@ -7,49 +8,51 @@ require 'erb'
 # computer) can perform
 
 before do
-
+	content_type :html 
 	@defeat = { rock: :scissors, paper: :rock, scissors: :paper}
 	@throws = @defeat.keys
 
 end
 
 get '/' do
-	erb :form
-	
+  
+  erb :form
+    	
+end
+
+post '/' do
+  
+  redirect "/throw/#{params[:opt]}"
+ #  redirect "http://127.0.0.1:9393/throw/#{params[:opt].to_sym}"
 end
 
 
 get '/throw/:type' do
-  # the params hash stores querystring and form data
-	@player_throw = params[:type].to_sym
+   # the params hash stores querystring and form data
+   @player_throw = params[:type].to_sym
+   
+   halt(403, "You must throw one of the following: '#{@throws.join(', ')}'") unless @throws.include? @player_throw
 
-	halt(403, "You must throw one of the following: '#{@throws.join(', ')}'") unless @throws.include? @player_throw
+   @computer_throw = @throws.sample
 
-	@computer_throw = @throws.sample
+   if @player_throw == @computer_throw 
+      @answer = "There is a tie"
+   elsif @player_throw == @defeat[@computer_throw]
+      @answer = "Computer wins! #{@computer_throw} defeats #{@player_throw}"
+   else
+      @answer = "Well done! #{@player_throw} beats #{@computer_throw}"
+   end
 
-	if @player_throw == @computer_throw 
-		@answer = "There is a tie"
-		erb :index
-	elsif @player_throw == @defeat[@computer_throw]
-		@answer = "Computer wins; #{@computer_throw} defeats #{@player_throw}"
-		erb :index
-	else
-		@answer = "Well done. #{@player_throw} beats #{@computer_throw}"
-		erb :index
-	end
+   erb :answer
+
+end
+
+post '/throw/:type' do
+   redirect "/"
 end
 
 __END__
 
 @@index
 
-<html>
-	<head>
-		<title>Rock Paper Scissors</title>
-	</head>
-	<body>
-		<h2> Computer chooses:  <%= @computer_throw %> </h2>
-		<h2> You choose: <%= @player_throw %> </h2>
-		<h1> <%= @answer %> </h1>
-	</body>
-</html>
+
