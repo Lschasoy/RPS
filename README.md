@@ -1,4 +1,0 @@
-RPS
-===
-
-rock paper scissors
