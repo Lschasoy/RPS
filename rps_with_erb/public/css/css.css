@@ -1,0 +1,31 @@
+body{
+	background-color: #D8D8D8;
+}
+
+h1 {
+	align: center;
+	color: #4B8A08;
+}
+
+h3 {
+	color: #4B8A08;
+}
+
+
+#boton {
+	position:relative;
+	background-color: #4B8A08;
+	border:solid;
+	color : #000;
+	font-weight: 700;
+	border-radius: 8;
+	padding: 10px;
+	top: 30px;
+
+}
+
+
+#answer{
+	position:relative;
+	top: 30px;
+}
