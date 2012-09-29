@@ -61,11 +61,11 @@ h1, h2, h3, h4, h5, h6, #option {
 }
 
 h1 {
-	font-size: 32px;
+	font-size: 28px;
 }
 
 h2 {
-	font-size: 28px;
+	font-size: 24px;
 	
 }
 
@@ -96,7 +96,13 @@ h6 {
 	font-size: 16px;
 }
 
+.footer h1 {
+	font-size: 20px;
+}
 
+.footer h2 {
+	font-size: 15px;
+}
 
 
 /* These selection declarations have to be separate
@@ -115,7 +121,7 @@ h6 {
 
 #site-title {
 	color: #1e1e1e;
-	font: bold 66px 'Droid Serif', sans-serif;
+	font: bold 42px 'Droid Serif', sans-serif;
 	float: left;
 	letter-spacing: -3px;
 	text-shadow: 0 1px 0 #fff;
@@ -125,6 +131,7 @@ h6 {
 	
 	-webkit-transform: translateZ(0);
 	transform: translateZ(0);
+	padding-left: 150px;
 }
 
 #site-title:hover {
@@ -149,7 +156,7 @@ h6 {
 	background: rgba(204, 204, 204, .4);
 	border-radius: 5px 5px 10px 10px;
 	width: 560px;
-	padding: 50px 20px 20px 20px;
+	padding: 40px 20px 10px 20px;
 	-webkit-box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.4), 0px 0px 15px rgba(204, 204, 204, 0.5);
 	-moz-box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.4), 0px 0px 15px rgba(204, 204, 204, 0.5);
 	box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.4), 0px 0px 15px rgba(204, 204, 204, 0.5);
@@ -169,13 +176,24 @@ h6 {
 }
 
 #boton1 {
-
    font-size: 100px;
    padding: 0px 10px 20px 350px;
-  
-	
 }
 
+#boton2 {
+
+   font-size: 100px;
+	padding: 0px 10px 20px 50px;
+}
+
+
+#boton3 {
+
+
+   font-size: 100px;
+	padding: 0px 30px 20px 80px;
+}
+	
 
 /**
  * Navigation
@@ -315,13 +333,10 @@ input[type=submit]:hover {
 
 #user h4{
 
-
    margin-left: 50px;
 }
 
 #computer h4{
-
-
    margin-left: 50px;
    
 }

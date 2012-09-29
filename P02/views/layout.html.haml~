@@ -3,7 +3,7 @@
    <link rel ="stylesheet" type="text/css" href="/foundation.css" />
    <head>
       <div class="row">
-			<div class="six columns centered">
+			<div class="seven columns centered">
 				<div class ="header" id ="site-title">
 					<tittle> Rock, Paper and Scissors </tittle>
 				</div>

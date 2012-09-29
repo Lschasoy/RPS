@@ -1,22 +1,38 @@
 <div class ="row">
-   <div class="six columns">
-      <img class="image" src=/images/<%= @computer_throw %>.png/>
-      <div id="computer"> Computer  </div>
+	<div class="six columns">
+		<img class="image" src=/images/<%= @computer_throw %>.png/>
+      <div id="computer"> <h4> Computer </h4> </div>
    </div>
    <div class="six colums offset-by-six ">
-      <img class="image" src=/images/<%= @player_throw %>.png/> 
-      <div id="user"> You choose </div>
+		<img class="image" src=/images/<%= @player_throw %>.png/> 
+		<div id="user"> <h4> You choose </h4> </div>
    </div>
 </div>
 
-   <div class ="row">
-	 <div id ="answer"> <%= @answer %> </div>
+<div class ="row">
+   <div id ="answer"> <%= @answer %></div> 
+</div> 
+
+<div class ="row">
+	<div class="six columns">
+		<h4> Computer = <%= session[:pc] %> </h4>
    </div>
-   
-   <form action="/throw/:type" method ="POST">
-      <div id="boton1">
-      <input type="submit" value="Try again!" >
-      </div>
-   </form>
+   <div class="six colums offset-by-six ">
+		<h4> User =  <%= session[:user] %> </h4>
+   </div>
+</div>
 
-
+<div class ="row">
+	<div class="four columns centered">
+		<form action="/logout" method ="POST">
+			<div id="boton2">
+				<input type="submit" value="Clear score!" >
+			</div>
+		</form>
+		<form action="/throw/:type" method ="POST">
+			<div id="boton2">
+				<input type="submit" value="Try again!" >
+			</div>
+		</form>
+	</div>
+</div>
