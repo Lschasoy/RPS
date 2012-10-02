@@ -1,32 +1,43 @@
 body {
-    background: #0000FF;
-    color: #00C;
+    background: #FFCC00;
     font-family: Helvetica, Arial, sans-serif;
-    font-size: 100%
-    background-position:center; ;
+    font-size: 100%;
+    background-position: center;
 
 }
 #PRC{
    width: 1024px;
+   height: 640px;
+
 }
 
 #CAB{
   
    width: 100%;
-background: #FFFF00;
+   background: #FFFF00;
    height: 15px;
 }
 
 
 #IZQ{
    margin-top: 1em;
-float:left;
+   float:left;
    width: 28%;
-background: #f0f0f0;
+   height: 620px;
+   background: #f0f0f0;
 }
 #DCH{
-   margin-left:30%;
-margin-top: 1em;
+   margin-left:29%;
+   margin-top: 1em;
    width: 70%;
-background: #FDFDF0;
+   height: 620px;
+
+   background: #FDFDF0;
+}
+#footer{
+
+    width: 1024px;
+    height: 30px;
+    float:center;
+    background: #AAAAFF;
 }
