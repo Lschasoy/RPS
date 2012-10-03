@@ -1,84 +1,43 @@
 require 'sinatra'
 require 'erb'
 
-=begin
-    
-     Univesidad de la laguna
-     Asig: Sistema y tecnologia web
-     Autor: Leonardo Siverio - alu3270
-     Name : Simpson Rock, paper and scissor.
-     descrip: Uso del sintra para el desarrollo de un juego RPS    
-   
-=end
-
-
-def image_throw ima_t
-  "/images/#{ima_t.downcase}.jpg"
-end
-
-set :public_forder, File.dirname(__FILE__)
-
-
+# before we process a route we'll set the response as plain text
+# and set up an array of viable moves that a player (and the
+# computer) can perform
 before do
   @defeat = { rock: :scissors, paper: :rock, scissors: :paper}
   @throws = @defeat.keys
-
 end
 
-get '/' do
-   erb :form, :layout => :mylayout
-end
-
-
-=begin 
-   name: Lanzar el Juego
-   Description: 
-=end
-
-
-get '/throw' do
-   erb :index   
-end
-
-=begin
-    descrip: Si le paso la cadena vacia
-=end
-
-get '/throw/' do
-   redirect '/'
-end
-
-get %r{^(?!/throw/)} do
-   redirect '/'
-end
-
-
-get '/throw/:player_throw' do
+get '/throw/:type' do
   # the params hash stores querystring and form data
-   
-  @player_throw = (params[:player_throw]||'').to_sym
-  @images_player = image_throw @player_throw
-    
+  @player_throw = params[:type].to_sym
 
-  redirect '/'  unless @throws.include? @player_throw.downcase
+  halt(403, "You must throw one of the following: '#{@throws.join(', ')}'") unless @throws.include? @player_throw
 
   @computer_throw = @throws.sample
-  @images_computer = image_throw @computer_throw
-
 
   if @player_throw == @computer_throw
-    @answer = "Tie"
-    @images = image_throw @player_throw
-
-
+    @answer = "There is a tie"
+    erb :index
   elsif @player_throw == @defeat[@computer_throw]
-    @answer = "Computer Wins; #{@computer_throw} defeats to #{@player_throw}"
-    @images = "/images/Pierdes.jpg"
+    @answer = "Computer wins; #{@computer_throw} defeats #{@player_throw}"
+    erb :index
   else
-    @answer = "Well done. #{@player_throw.capitalize} beats #{@computer_throw}"
-    @images = image_throw @player_throw
-
+    @answer = "Well done. #{@player_throw} beats #{@computer_throw}"
+    erb :index
   end
-  
-  erb :myTemplate, :layout => :mylayout
 end
+__END__
+
+@@index
+<html>
+<head>
+<title>Rock Paper Scissors</title>
+</head>
+<body>
+<h2> Computer chooses: <%= @computer_throw %> </h2>
+<h2> You choose: <%= @player_throw %> </h2>
+<h1> <%= @answer %> </h1>
+</body>
+</html>
