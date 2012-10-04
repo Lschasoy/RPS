@@ -12,12 +12,13 @@ require 'Haml'
 =end
 
 
+
 def image_throw ima_t
   "/images/#{ima_t.downcase}.jpg"
 end
 
 set :public_forder, File.dirname(__FILE__)
-
+enable :sessions
 
 before do
   @defeat = { rock: :scissors, paper: :rock, scissors: :paper}
@@ -70,13 +71,20 @@ get '/throw/:player_throw' do
     @answer = "Tie"
     @images = image_throw @player_throw
 
+    sesssion [:score_computer] = session[:score_computer] + 1
+    sesssion [:score_player] = session[:score_player] + 1
 
   elsif @player_throw == @defeat[@computer_throw]
     @answer = "Computer Wins; #{@computer_throw} defeats to #{@player_throw}"
     @images = "/images/Pierdes.jpg"
+
+    sesssion [:score_computer] = session[:score_computer] + 1
+
   else
     @answer = "Well done. #{@player_throw.capitalize} beats #{@computer_throw}"
     @images = image_throw @player_throw
+
+    sesssion [:score_player] = session[:score_player] + 1
 
   end
   
