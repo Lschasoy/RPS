@@ -1,0 +1,34 @@
+%html
+  %head
+    %title Rock Paper Scissors
+    %link{:href => "/css/foundation.css", :rel => "stylesheet", :type => "text/css"}
+      %link{:href => "/css/css.css", :rel => "stylesheet", :type => "text/css"}
+  %body
+    .row
+      <div class="five columns centered"">
+      %h3
+        You played #{@player_throw} and The computer played #{@computer_throw}
+    .row
+      .twelve.columns.centered{:align => "center"}
+        <img  src= /images/#{@player_throw}.png>
+        %img{:height => "50", :src => "/images/versus.png", :width => "50"}
+          <img  src= /images/#{@computer_throw}.png>
+    .row
+      #boton.three.columns.centered{:align => "center"}
+        %button.punch
+          %a{:href => "/"} play again
+    .row
+      #Answer.eight.columns.centered{:align => "center"}
+        %h1
+          = @answer
+    .row
+      .three.columns.score
+        %h3
+          Your score = #{session[:MyScore]}
+      .four.columns.score
+        %h3
+          Computer score =  #{session[:ComputerScore]}
+    .row
+      .three.columns.centered{:align => "center"}
+        %button.punch
+          %a{:href => "/logout"} reset

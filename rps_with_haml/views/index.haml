@@ -1,0 +1,18 @@
+%html
+  %head
+    %title Rock Paper Scissors
+    %link{:href => "/css/foundation.css", :rel => "stylesheet", :type => "text/css"}
+      %link{:href => "/css/css.css", :rel => "stylesheet", :type => "text/css"}
+  %body
+    .row
+      .six.columns.centered
+        %h1 Rock Paper Scissors
+    .row
+      .three.columns.centered
+        %form{:action => "/play", :method => "POST", :name => "form"}
+          %select#select{:name => "select"}
+            %option{:value => ""} Select one
+            %option{:value => "rock"} Rock
+            %option{:value => "paper"} Paper
+            %option{:value => "scissors"} Scissors
+          %input#playButton{:type => "submit", :value => "Play"}

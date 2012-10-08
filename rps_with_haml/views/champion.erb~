@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title> Rock Paper Scissors </title>
+		<link rel='stylesheet' href='/css/foundation.css' type='text/css'>
+		<link rel='stylesheet' href='/css/css.css' type='text/css'>
+	</head>
+	<body>
+		<div class="row">
+			<div class="five columns centered"">
+				<h3>You played <%= @player_throw %> and The computer played <%= @computer_throw %> </h3>
+			</div>
+		</div>
+		<div class="row">
+			<div align="center" class="twelve columns centered" >
+				<img  src= /images/<%= @player_throw %>.png> 
+				<img  src= /images/versus.png width= "50" height="50">
+				<img  src= /images/<%= @computer_throw %>.png>  
+			</div>
+		</div>
+		<div class="row">
+			<div align="center" class="three columns centered" id = "boton">
+				<button  class = "punch" ><a  href="/">play again</a> </button>
+			</div>
+		</div>
+		<div class="row">
+			<div align="center" class="eight columns centered" id = "Answer" >
+				<h1> <%= @answer %></h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="three columns score" >
+				<h3>Your score = <%= session[:MyScore] %>  </h3>
+			</div>
+			<div class="three columns score" >
+				<h3>Computer score =  <%= session[:ComputerScore] %>  </h3>
+			</div>
+		</div>
+				<div class="row">
+			<div align="center" class="three columns centered" >
+				<button  class = "punch" ><a href="/logout">reset</a> </button>
+			</div>
+		</div>
+	</body>
+	</html>
