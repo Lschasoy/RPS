@@ -1,10 +1,13 @@
-%h2 PC: @computer_throw
-  %a{:href="/"} 
-    %img{:src=@images_computer}
-%h2 You: @player_throw 
-  %a{:href="/"}
-    %img{:src= @images_player}
+%h2= @computer_throw
+%a{:href => "/"} 
+	%img{:src => @images_computer}
+%h2= @player_throw 
+%a{:href => "/"}
+	%img{:src => @images_player}
 %h2 
-   %a{:href="/"}
-     %img{:src= @images}
-%h2 @answer
+%a{:href => "/"}
+	%img{:src =>  @images}
+%h2= @answe
+
+%h2= session[:score_computer]
+%h2= session[:score_player]

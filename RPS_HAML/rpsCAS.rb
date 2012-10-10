@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'Haml'
+require 'haml'
 
 =begin
     
@@ -27,7 +27,7 @@ before do
 end
 
 get '/' do
-   erb :form, :layout => :mylayout
+   haml :form
 end
 
 
@@ -38,7 +38,7 @@ end
 
 
 get '/throw' do
-   erb :index   
+   haml :index   
 end
 
 =begin
@@ -59,8 +59,10 @@ get '/throw/:player_throw' do
    
   @player_throw = (params[:player_throw]||'').to_sym
   @images_player = image_throw @player_throw
-    
-
+  session[:score_computer] ||= 0
+  session[:score_player] ||=  0
+ 
+   
   redirect '/'  unless @throws.include? @player_throw.downcase
 
   @computer_throw = @throws.sample
@@ -68,25 +70,25 @@ get '/throw/:player_throw' do
 
 
   if @player_throw == @computer_throw
-    @answer = "Tie"
+    @answer = "Empate"
     @images = image_throw @player_throw
 
-    sesssion [:score_computer] = session[:score_computer] + 1
-    sesssion [:score_player] = session[:score_player] + 1
+    session[:score_computer] += 1
+    session[:score_player] +=  1
 
   elsif @player_throw == @defeat[@computer_throw]
-    @answer = "Computer Wins; #{@computer_throw} defeats to #{@player_throw}"
+    @answer = "Pc Ganas #{@computer_throw} defeats to #{@player_throw}"
     @images = "/images/Pierdes.jpg"
 
-    sesssion [:score_computer] = session[:score_computer] + 1
+    session[:score_computer] += 1
 
   else
-    @answer = "Well done. #{@player_throw.capitalize} beats #{@computer_throw}"
+    @answer = "Bien Hecho, Tu Ganas. #{@player_throw.capitalize} beats #{@computer_throw}"
     @images = image_throw @player_throw
 
-    sesssion [:score_player] = session[:score_player] + 1
+    session[:score_player] += 1
 
   end
   
-  erb :myTemplate, :layout => :mylayout
+  haml :myTemplate, :layout => :mylayout
 end
