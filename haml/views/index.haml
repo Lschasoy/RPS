@@ -1,0 +1,16 @@
+%html
+  %head
+    %title  Rock Paper Scissors. The Game
+    %link{:rel =>"stylesheet", :type=>"text/css", :href=>"/style.css"}
+  %body
+    %div#content
+      %h1 Rock, Paper, Scissors. The Game
+      %h3 Please, choose your throw:
+      %form{ :action=> "/move", :method=>"post"}
+        %input{:name => "select", :type => "radio", :value => "rock"} Rock
+        %input{:name => "select", :type => "radio", :value => "paper"} Paper
+        %input{:name => "select", :type => "radio", :value => "scissors"} Scissors
+        %input{:type=> "submit", :value => "Move"}
+
+    %div#footer
+      %h3 Sistemas y Tecnologías Web 2012/2013
