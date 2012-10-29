@@ -1,0 +1,19 @@
+%html
+  %head
+    %title Rock, Paper, Scissors
+    %link{:href => "/style.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
+    %img{:src => "/head.gif"}/
+  %body
+    #PRC
+      #CAB
+        %br/
+      #IZQ
+        %h1{:align => "center"} RPS HAML Score
+        %h1{:align => "center"}
+          PC = #{session[:marcador_pc]}
+        %h1{:align => "center"}
+          Player = #{session[:marcador_player]}
+        %br/
+      #DCH
+        = yield
