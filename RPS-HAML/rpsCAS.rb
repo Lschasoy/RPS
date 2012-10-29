@@ -51,5 +51,6 @@ get '/throw/:player_throw' do
     @images = image_throw @player_throw
     session[:marcador_player] += 1 
   end
+  
   erb :myTemplate, :layout => :mylayout
 end
