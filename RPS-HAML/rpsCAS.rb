@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'erb'
+require 'haml'
 
 def image_throw ima_t
   "/images/#{ima_t.downcase}.jpg"
@@ -18,11 +18,11 @@ get '/' do
 	if session[:marcador_player].nil?
 		session[:marcador_player] = session[:marcador_pc] = 0
 	end
-   erb :form, :layout => :mylayout
+   haml :form, :layout => :mylayout
 end
 
 get '/throw' do
-   erb :index
+   haml :index
 end
 
 get '/throw/' do #redirecciona si la jugada es vacia
@@ -55,5 +55,5 @@ get '/throw/:player_throw' do
     session[ :marcador_player ] += 1 
   end
   
-  erb :myTemplate, :layout => :mylayout
+  haml :myTemplate, :layout => :mylayout
 end
