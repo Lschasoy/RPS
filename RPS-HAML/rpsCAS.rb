@@ -14,6 +14,9 @@ before do
 end
 
 get '/' do
+	if session[:marcador_player].nil?
+		session[:marcador_player] = session[:marcador_pc] = 0
+	end
    erb :form, :layout => :mylayout
 end
 
@@ -40,16 +43,16 @@ get '/throw/:player_throw' do
   if @player_throw == @computer_throw
     @answer = "Tie"
     @images = image_throw @player_throw
-    session[:marcador_player] += 1
-    session[:marcador_pc] += 1  
+    session[:marcador_player] =  session[:marcador_player] + 1
+    session[:marcador_pc] = session[:marcador_pc] + 1  
   elsif @player_throw == @defeat[@computer_throw]
     @answer = "Computer Wins; #{@computer_throw} defeats to #{@player_throw}"
     @images = "/images/Pierdes.jpg"
-    session[:marcador_pc] += 1
+    session[:marcador_pc] = session[:marcador_pc] + 1
   else
     @answer = "Well done. #{@player_throw.capitalize} beats #{@computer_throw}"
     @images = image_throw @player_throw
-    session[:marcador_player] += 1 
+    session[:marcador_player] = session[:marcador_player] + 1 
   end
   
   erb :myTemplate, :layout => :mylayout
