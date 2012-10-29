@@ -6,6 +6,7 @@ def image_throw ima_t
 end
 
 set :public_forder, File.dirname(__FILE__)
+
 enable :sessions
 
 before do
@@ -43,16 +44,15 @@ get '/throw/:player_throw' do
   if @player_throw == @computer_throw
     @answer = "Tie"
     @images = image_throw @player_throw
-    session[:marcador_player] =  session[:marcador_player] + 1
-    session[:marcador_pc] = session[:marcador_pc] + 1  
+     
   elsif @player_throw == @defeat[@computer_throw]
     @answer = "Computer Wins; #{@computer_throw} defeats to #{@player_throw}"
     @images = "/images/Pierdes.jpg"
-    session[:marcador_pc] = session[:marcador_pc] + 1
+    session[ :marcador_pc ] += 1
   else
     @answer = "Well done. #{@player_throw.capitalize} beats #{@computer_throw}"
     @images = image_throw @player_throw
-    session[:marcador_player] = session[:marcador_player] + 1 
+    session[ :marcador_player ] += 1 
   end
   
   erb :myTemplate, :layout => :mylayout
