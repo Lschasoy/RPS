@@ -1,0 +1,22 @@
+%html
+  %head
+    %title Rock, Paper, Scissors
+    %link{:href => "/style.css", :rel => "stylesheet", :type => "text/css"}/
+    %img{:src => "/head.jpg"}/
+  %body
+    #PRC
+      #CAB
+        %br/
+      #IZQ
+        %h1{:align => "center"} Score
+        %h1{:align => "center"}
+          PC = #{session[:computer_score]}
+        %h1{:align => "center"}
+          Player = #{session[:player_score]}
+        %ol
+          %li
+            %a{:href => "/"} Otra Partida
+          %ol
+            %br/
+      #DCH
+        = yield

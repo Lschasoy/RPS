@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'erb'
+require 'haml'
 require 'openssl'
 
 
@@ -14,12 +14,22 @@ before do
   @throws = @defeat.keys
 end
 
+configure do
+	enable :sessions
+end
+
 get '/' do
-   erb :form, :layout => :mylayout
+	if session[:player_score].nil?
+		session[:player_score]=0
+	end
+	if session[:computer_score].nil?
+		session[:computer_score]=0
+	end
+	haml :form, :layout => :mylayout
 end
 
 get '/throw' do
-   erb :index
+   haml :index
 end
 
 get '/throw/' do
@@ -34,6 +44,12 @@ get %r{/throw\w+} do
 	redirect '/'
 end
 
+post '/reset' do
+	session.clear
+	redirect '/'
+end
+
+
 get '/throw/:player_throw' do
   # the params hash stores querystring and form data
    
@@ -41,7 +57,7 @@ get '/throw/:player_throw' do
   @player_throw = (params[:player_throw]||'').to_sym
   @images_player = image_throw @player_throw
 
-  redirect '/' unless @throws.include? @player_throw
+  redirect '/' unless @throws.include? @player_throw.downcase
 
   @computer_throw = @throws.sample
   @images_computer = image_throw @computer_throw
@@ -51,10 +67,12 @@ get '/throw/:player_throw' do
     @images = image_throw @player_throw
   elsif @player_throw == @defeat[@computer_throw]
     @answer = "Computer Wins; #{@computer_throw} defeats to #{@player_throw}"
+	 session[:computer_score]+=1
     @images = image_throw @computer_throw
   else
     @answer = "Well done. #{@player_throw.capitalize} beats #{@computer_throw}"
+	 session[:player_score]+=1
     @images = image_throw @player_throw
   end
-  erb :myTemplate, :layout => :mylayout
+  haml :myTemplate, :layout => :mylayout
 end

@@ -1,0 +1,19 @@
+%table{:align => "center", :width => "600"}
+  %tr
+    %td
+      %h2
+        PC: #{@computer_throw}
+        %a{:href => "/"}
+          <img src= #{@images_computer}/>
+    %td
+      %h2
+        You: #{@player_throw}
+        %a{:href => "/"}
+          <img src= #{@images_player}/>
+  %tr
+    %td{:colspan => "2"}
+      %h2
+        %a{:href => "/"}
+          <img src= #{@images}/>
+      %h2
+        = @answer
