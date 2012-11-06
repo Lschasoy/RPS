@@ -1,0 +1,17 @@
+%html
+  %head
+    %title>Rock, Paper, Scissors
+
+  %body
+    %h1 Rock, Paper, Scissors. The Game
+    %h3 Results:
+    %h3  * Computer chooses: #{@computer_throw}
+    %h3  * You choose: #{@player_throw}
+    %h2 #{@answer}
+    %h4 RPS Score
+    %h3 Player = #{session[:player_score]}
+    %h3 Computer = #{session[:computer_score]}
+    %form{ :action=> "/again", :method=>"post"}
+      %input{:type=> "submit", :value => "Play again"}
+    %form{ :action=> "/reset", :method=>"post"}
+      %input{:type=> "submit", :value => "Reset"}
