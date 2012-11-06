@@ -1,0 +1,42 @@
+body {
+    background: #04B486;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 100%;
+    background-position: center;
+}
+
+#PRC{
+   width: 1024px;
+   height: 640px;
+
+}
+
+#CAB{
+  
+   width: 100%;
+   background: #FFFF00;
+   height: 15px;
+}
+
+
+#LEFT{
+   margin-top: 1em;
+   float:left;
+   width: 28%;
+   height: 620px;
+   background: #ffffff;
+}
+#RIGHT{
+   float:right;
+   margin-top: 1em;
+   width: 70%;
+   height: 620px;
+   background: #FDFDF0;
+}
+#footer{
+
+    width: 1024px;
+    height: 30px;
+    float:center;
+    background: #AAAAFF;
+}

@@ -1,0 +1,14 @@
+%h2= "Choice of computer: #{@computer_throw}"
+%a{:href => "/"} 
+	%img{:src => @images_computer}
+%h2= "Your choice: #{@player_throw}"
+%a{:href => "/"}
+	%img{:src => @images_player}
+%h2="Resultado " 
+%a{:href => "/"}
+	%img{:src =>  @images}
+%h2= @answer
+
+%h2= "Counter"
+%h2= session[:score_computer]
+%h2= session[:score_player]
