@@ -2,13 +2,13 @@ require 'sinatra'
 require 'syntaxi'
 
 class String
-  def formatted_body
-    source = "[code lang='ruby']
+  def formatted_body(lang)
+    source = "[code lang='#{lang}']
                 #{self}
               [/code]"
     html = Syntaxi.new(source).process
     %Q{
-      <div class="syntax syntax_ruby">
+      <div class="syntax">
         #{html}
       </div>
     }
@@ -19,6 +19,8 @@ get '/' do
   erb :new
 end
 
-post '/' do
-  .....
+post '/final' do
+  @language=params[:select]
+  @text=params[:body].formatted_body(@language)
+  erb :final
 end

@@ -1,0 +1,8 @@
+<body>
+    <div id="snippet">
+      <div id="content">
+        <%= @text %>
+      </div>
+    </div>
+</body>
+</html>
