@@ -1,0 +1,16 @@
+body {
+    background: #FFFFFF;
+    font-size: 100%;
+}
+
+#content{
+    width: 800px;
+    height: 600px;
+}
+
+#footer{
+    width: 800px;
+    height: 20px;
+    float:center;
+    background: #FFFFFF;
+}

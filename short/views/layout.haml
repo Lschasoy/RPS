@@ -1,0 +1,8 @@
+%html
+	%title Practica: Shortened Urls
+	%body
+		%form(action="/" method="POST")
+			%label(for="url") URL:
+			%input(type="text" name="url" id="url" accesskey="s")
+			%input(type="submit" value="Shorter")
+		=yield
