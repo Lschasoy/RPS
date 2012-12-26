@@ -1,0 +1,6 @@
+- if @short_url.present? && !@short_url.valid?
+  %div.alert.alert-error
+    Algo salió mal acortando la url. #{@short_url.url}
+    %ul
+      - @short_url.errors.each do |attr,error|
+        %li #{attr} #{error}
